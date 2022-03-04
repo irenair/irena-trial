@@ -3,11 +3,10 @@
 const express = require('express');
 const os = require('os');
 const mysql = require('mysql')
+require("dotenv").config();
 
 // Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
-
+const PORT = process.env.NODE_DOCKER_PORT || 8080;
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -37,5 +36,5 @@ app.get('/', (req, res) => {
   connection.end()
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT} \nOS: ${os.hostname()}`);
+app.listen(PORT);
+console.log(`Running on port ${PORT} \nOS: ${os.hostname()}`);
