@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nodejs  
+    spec:
+      containers: 
+      - name: node-image
+        image: irenairmalasari/irena-trial:1.0
+        ports:
+        - containerPort: 3000
