@@ -1,13 +1,10 @@
 FROM node:latest
-WORKDIR /app
-COPY package.json /app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/package.json
 RUN npm install
-COPY . /app
 
-ENV MYSQL_HOST "mysql-set-0.svc"
-ENV MYSQL_PORT "3306"
-ENV MYSQL_USER "root"
-ENV MYSQL_PASSWORD "1234"
-ENV MYSQL_DATABASE "logging"
-
-CMD ["node", "server.js"]
+COPY . /usr/src/app/
+EXPOSE 8080
+CMD ["node", "index.js"]

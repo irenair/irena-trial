@@ -19,6 +19,7 @@ spec:
         image: mysql
         ports:
         - containerPort: 3306
+          protocol: TCP
         volumeMounts:
         - name: mysql-store
           mountPath: /var/lib/mysql
