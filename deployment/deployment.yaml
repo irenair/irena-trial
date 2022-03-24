@@ -21,7 +21,7 @@ spec:
         - containerPort: 80
         env:
           - name: DB_HOST
-            value: node-deployment-mysql
+            value: mysql-svc.default.cluster.local
           - name: DB_USER
             value: mysql-user
           - name: DB_PASSWORD
@@ -31,16 +31,3 @@ spec:
                 key: mysql-password
           - name: DB_DATABASE
             value: logging
-        volumeMounts:
-          - name: mysql-initdb
-            mountPath: /docker-entrypoint-initdb.d
-          - mountPath: "/var/lib/mysql"
-            subPath: "mysql"
-            name: mysql-data
-      volumes:
-        - name: mysql-initdb
-          configMap:
-            name: mysql-config
-        - name: mysql-data
-          persistentVolumeClaim:
-            claimName: mysql-data-disk
