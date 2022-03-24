@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  create-table.sql: |-
+      CREATE DATABASE IF NOT EXISTS logging;
+      USE logging;
+      CREATE TABLE logging (
+        userID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        ip VARCHAR(255),
+        timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
