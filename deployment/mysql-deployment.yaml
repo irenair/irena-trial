@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
+  namespace: irena-playground
   labels:
     app: mysql
 spec:
@@ -20,9 +21,9 @@ spec:
           ports:
             - containerPort: 3306
           env:
-            - name: MYSQL_USER
-              value: mysql-user
-            - name: MYSQL_PASSWORD
+            # - name: MYSQL_USER
+            #   value: mysql-user
+            - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mysql
@@ -30,13 +31,13 @@ spec:
           volumeMounts:
             - name: mysql-initdb
               mountPath: /docker-entrypoint-initdb.d
-            - name: mysql-data
-              mountPath: "/var/lib/mysql"
+            # - name: mysql-data
+            #   mountPath: "/var/lib/mysql"
               
       volumes:
         - name: mysql-initdb
           configMap:
             name: mysql-config
-        - name: mysql-data
-          persistentVolumeClaim:
-            claimName: mysql-data-disk
+        # - name: mysql-data
+        #   persistentVolumeClaim:
+        #     claimName: mysql-data-disk

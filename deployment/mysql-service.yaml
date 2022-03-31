@@ -2,9 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql-svc
+  namespace: irena-playground
 spec:
   selector:
-    name: mysql-svc
+    app: mysql
   ports:
     - protocol: TCP
       port: 3306

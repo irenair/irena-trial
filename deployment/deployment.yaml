@@ -16,14 +16,14 @@ spec:
     spec:
       containers:
       - name: node-irena
-        image: irenairmalasari/node-apps:1.0
+        image: irenairmalasari/node-apps:1.4
         ports:
-        - containerPort: 80
+        - containerPort: 3000
         env:
           - name: DB_HOST
-            value: mysql-svc.default.cluster.local
+            value: mysql-svc.irena-playground.svc.cluster.local
           - name: DB_USER
-            value: mysql-user
+            value: root
           - name: DB_PASSWORD
             valueFrom:
               secretKeyRef:

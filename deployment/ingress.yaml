@@ -1,19 +1,15 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
-  name: api-ingress
-  labels:
-    app: node
+  name: nginx-ingress-irena
+  namespace: irena-playground
 spec:
-  ingressClassName: "nginx"
-  rules:
-  - host: api.info
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: api-service
-            port:
-              number: 80
+  entryPoints:
+    - web-pv
+  routes:
+    - match: Host(`nginx-irena.ap-southeast-1.priv.plg.tidnex.dev`) && PathPrefix(`/`)
+      kind: Rule
+      services:
+        - kind: Service
+          name: node-service
+          port: 3200

@@ -4,10 +4,10 @@ async function main() {
   const app      = express();
   const port     = process.env.PORT || 3000;
   const connOpts = {
-    host     : process.env.DB_HOST || 'localhost',
-    user     : process.env.DB_USER || 'root',
-    password : process.env.DB_PASSWORD || 'rena3199',
-    database : process.env.DB_DATABASE || 'logging',
+    host     : process.env.DB_HOST,
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_DATABASE,
     multipleStatements: true
   };
   const conn = await mysql.createConnection(connOpts);
@@ -34,7 +34,7 @@ async function main() {
 
   async function getAllUsers(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    var query = `INSERT INTO logging (ip) VALUES (${String(ip.split('::')[1])});`;
+    var query = `INSERT INTO logging (ip) VALUES ('${ip}');`;
 
     const [log] = await conn.query(query);
     res.send(`OS: Linux (manual) \nIP: ${ip} \nResult mysql:${log.serverStatus}`);
