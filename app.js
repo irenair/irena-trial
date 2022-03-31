@@ -37,7 +37,8 @@ async function main() {
     var query = `INSERT INTO logging (ip) VALUES ('${ip}');`;
 
     const [log] = await conn.query(query);
-    res.send(`OS: Linux (manual) \nIP: ${ip} \nResult mysql:${log.serverStatus}`);
+    // res.send(`OS: Linux (manual) \nIP: ${ip} \nResult mysql:${log.serverStatus}`);
+    res.send('Irena Irmalasari - Xendit - Trial 4 Maret - 31 Maret');
   }
 }
 
