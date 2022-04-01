@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dockerstats": "^2.3.0",
     "express": "^4.17.3",
     "mongodb": "^4.4.1",
     "mysql2": "^2.3.3"

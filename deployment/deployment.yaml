@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-irena
-        image: irenairmalasari/node-apps:2.0
+        image: irenairmalasari/node-apps-trial:1.5
         ports:
         - containerPort: 3000
         env:
