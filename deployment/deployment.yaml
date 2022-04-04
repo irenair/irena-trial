@@ -21,7 +21,7 @@ spec:
         - containerPort: 3000
         env:
           - name: DB_HOST
-            value: mysql-svc.irena-playground.svc.cluster.local
+            value: mysql-svc.default.svc.cluster.local
           - name: DB_USER
             value: root
           - name: DB_PASSWORD
