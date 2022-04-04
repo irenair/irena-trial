@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-irena
-        image: irenairmalasari/node-apps-irena:latest
+        image: irenairmalasari/node-apps-irena
         imagePullPolicy: "Always"
         ports:
         - containerPort: 3000
