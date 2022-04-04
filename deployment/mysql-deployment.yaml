@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
-  namespace: irena-playground
+  # namespace: irena-playground
   labels:
     app: mysql
 spec:
