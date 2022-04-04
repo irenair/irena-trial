@@ -53,8 +53,8 @@ async function main() {
     const os = await exec(command_os)
 
     // res.send(`Docker Container OS: ${os.stdout} \nIP: ${ip} \nResult mysql:${log.serverStatus}`);
-    // res.send('Irena Irmalasari - Xendit - Trial 4 Maret - 31 Maret');
-    res.send(`Docker Memory Usage: ${memory.stdout} & Docker CPU Usage: ${cpu.stdout}`)
+    res.send('Irena Irmalasari - Xendit - Trial 4 Maret - 31 Maret');
+    // res.send(`Docker Memory Usage: ${memory.stdout} & Docker CPU Usage: ${cpu.stdout}`)
   }
 }
 
