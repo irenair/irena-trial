@@ -2,7 +2,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: nginx-ingress-irena
-  # namespace: irena-playground
+  # namespace: trial-test
 spec:
   entryPoints:
     - web-pv

@@ -1,8 +1,8 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Statefulset
 metadata:
   name: mysql-deployment
-  # namespace: irena-playground
+  namespace: trial-test
   labels:
     app: mysql
 spec:

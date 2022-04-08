@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mysql-config
-  # namespace: irena-playground
+  # namespace: trial-test
 data:
   create-table.sql: |-
       CREATE DATABASE IF NOT EXISTS logging;
