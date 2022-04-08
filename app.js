@@ -17,14 +17,8 @@ async function main() {
   // Close the connection on ctrl+c.
   process.on('SIGINT', close);
 
-  // Hello, world route.
-  app.get('/', (req, res) => {
-    var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
-    res.json({hello: ip})
-  });
-
   // Get all users route.
-  app.get('/users', getAllUsers);
+  app.get('/', getAllUsers);
 
   app.listen(port);
   console.log(`Listening on port ${port}.`);
