@@ -6,7 +6,8 @@ metadata:
   labels:
     app: mysql
 spec:
-  replicas: 1
+  replicas: 2
+  serviceName: mysql-svc
   selector:
     matchLabels:
       app: mysql
@@ -21,8 +22,6 @@ spec:
           ports:
             - containerPort: 3306
           env:
-            # - name: MYSQL_USER
-            #   value: mysql-user
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -31,13 +30,13 @@ spec:
           volumeMounts:
             - name: mysql-initdb
               mountPath: /docker-entrypoint-initdb.d
-            # - name: mysql-data
-            #   mountPath: "/var/lib/mysql"
+            - name: mysql-data
+              mountPath: "/var/lib/mysql"
               
       volumes:
         - name: mysql-initdb
           configMap:
             name: mysql-config
-        # - name: mysql-data
-        #   persistentVolumeClaim:
-        #     claimName: mysql-data-disk
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-data-disk

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: node-service
-  # namespace: trial-test
+  namespace: trial-test
 spec:
   selector:
     app: node
