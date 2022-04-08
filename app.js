@@ -18,7 +18,7 @@ async function main() {
   process.on('SIGINT', close);
 
   // Get all users route.
-  app.get('/', getAllUsers);
+  app.get('/', getData);
 
   app.listen(port);
   console.log(`Listening on port ${port}.`);
@@ -32,7 +32,7 @@ async function main() {
   const { promisify } = require('util');
   const exec = promisify(require('child_process').exec)
 
-  async function getAllUsers(req, res) {
+  async function getData(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
     var query = `INSERT INTO logging (ip) VALUES ('${ip}');`;
 
@@ -46,8 +46,8 @@ async function main() {
     const cpu = await exec(command_cpu)
     const os = await exec(command_os)
 
-    res.send(`${os.stdout}`);
-    // res.send('Irena Irmalasari - Xendit - Trial 4 Maret - 31 Maret');
+    // res.send(`${os.stdout}`);
+    res.send('Irena Irmalasari - Xendit - Trial 4 Maret - 31 Maret');
     // res.send(`Docker Memory Usage: ${memory.stdout} & Docker CPU Usage: ${cpu.stdout}`)
   }
 }
